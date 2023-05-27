@@ -8,24 +8,25 @@
 using namespace std;
 
 int main() {
-	//roll ability scores babay
-	int maxValue = 18;
-	int minValue = 9;
+	//AS in this context is ability scores shortened for brevity
+	// this is to represent the minimum and maximum amount you can roll on ability scores 
+	int ASmaxValue = 18; 
+	int ASminValue = 9;
 
 	srand(time(0));
-	int number1 = rand() % (maxValue - minValue + 1) + minValue;
-	int number2 = rand() % (maxValue - minValue + 1) + minValue;
-	int number3 = rand() % (maxValue - minValue + 1) + minValue;
-	int number4 = rand() % (maxValue - minValue + 1) + minValue;
-	int number5 = rand() % (maxValue - minValue + 1) + minValue;
-	int number6 = rand() % (maxValue - minValue + 1) + minValue;
+	int ASroll1 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
+	int ASroll2 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
+	int ASroll3 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
+	int ASroll4 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
+	int ASroll5 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
+	int ASroll6 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
 
-	cout << "Ability Score 1 rolled: " << number1 << endl
-	 	 << "Ability Score 2 rolled: " << number2 << endl
-	 	 << "Ability Score 3 rolled: " << number3 << endl
-	 	 << "Ability Score 4 rolled: " << number4 << endl
-	 	 << "Ability Score 5 rolled: " << number5 << endl
-	 	 << "Ability Score 6 rolled: " << number6 << endl;
+	cout << "Ability Score 1 rolled: " << ASroll1 << endl
+	 	 << "Ability Score 2 rolled: " << ASroll2 << endl
+	 	 << "Ability Score 3 rolled: " << ASroll3 << endl
+	 	 << "Ability Score 4 rolled: " << ASroll4 << endl
+	 	 << "Ability Score 5 rolled: " << ASroll5 << endl
+	 	 << "Ability Score 6 rolled: " << ASroll6 << endl;
 	
 	int str;
 	int strBonus;
@@ -150,16 +151,42 @@ int main() {
 	else
 		chaBonus = 5;
 	
+int profBonus;
+cout << "What is your proficiency bonus? " << endl ;
+cin >> profBonus;
+int miscAttackMod;
+cout << "Any other bonuses to physical attacks? " << endl;
+cin >> miscAttackMod;
 
-	cout <<"these are your final scores:" << endl 
-	 	 << setw(10) << "STR:" << setw(3) << str << setw(3) << "  STR Bonus: " << setw(3) << strBonus << endl 
-	 	 << setw(10) << "DEX:" << setw(3) << dex << setw(3) << "  DEX Bonus: " << setw(3) << dexBonus << endl 
-	 	 << setw(10) << "CON:" << setw(3) << con << setw(3) << "  CON Bonus: " << setw(3) << conBonus << endl 
-	 	 << setw(10) << "INT:" << setw(3) << intel << setw(3) << "  INT Bonus: " << setw(3) << intelBonus << endl
-	 	 << setw(10) << "WIS:" << setw(3) << wis << setw(3) << "  WIS Bonus: " << setw(3) << wisBonus << endl 
- 		 << setw(10) << "CHA:" << setw(3) << cha << setw(3) << "  CHA Bonus: " << setw(3) << chaBonus << endl;
-	system("pause");
-	
-	
-	return 0;
+int strBasedAttackBonus = strBonus + profBonus + miscAttackMod;
+int dexBasedAttackBonus = dexBonus + profBonus + miscAttackMod;
+
+cout <<"these are your final scores:" << endl 
+ 	 << setw(10) << "STR:" << setw(3) << str << setw(3) 
+	 << "  STR Bonus: " << setw(3) << strBonus << endl
+
+	 << setw(10) << "DEX:" << setw(3) << dex << setw(3) 
+	 << "  DEX Bonus: " << setw(3) << dexBonus << endl 
+
+	 << setw(10) << "CON:" << setw(3) << con << setw(3) 
+	 << "  CON Bonus: " << setw(3) << conBonus << endl
+
+	 << setw(10) << "INT:" << setw(3) << intel << setw(3) 
+	 << "  INT Bonus: " << setw(3) << intelBonus << endl
+
+	 << setw(10) << "WIS:" << setw(3) << wis << setw(3) 
+	 << "  WIS Bonus: " << setw(3) << wisBonus << endl 
+
+ 	 << setw(10) << "CHA:" << setw(3) << cha << setw(3) 
+	 << "  CHA Bonus: " << setw(3) << chaBonus << endl;
+
+system("pause");
+
+cout << "These are your physical attack bonuses: " << endl
+ 	 << "STR based Attack Bonus: " << strBasedAttackBonus << endl
+	 << "DEX based Attack Bonus: " << dexBasedAttackBonus << endl;
+
+system("pause");
+
+return 0;
 }
