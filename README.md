@@ -13,4 +13,6 @@ but it is not required and the software itself will never prompt you to give a d
 
 I have plans to add a "random backstory and appearance generator" that will drop a paragraph about the npcs looks and backstory.
 
+.exe in output folder haven't compiled it on linux yet but if you do I'd appreciate it
+
 ## If you want to donate please contact me on Discord: thefool309#9194
