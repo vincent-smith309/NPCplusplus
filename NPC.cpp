@@ -1,3 +1,4 @@
+#define _GLIBCXX_USE_CXX11_ABI 0
 #include <iostream>
 #include <cmath>
 #include <ctime>
@@ -7,7 +8,8 @@
 
 using namespace std;
 
-int main() {
+int main() 
+{
 	//AS in this context is ability scores shortened for brevity
 	// this is to represent the minimum and maximum amount you can roll on ability scores 
 	int ASmaxValue = 18; 
@@ -161,6 +163,33 @@ cin >> miscAttackMod;
 int strBasedAttackBonus = strBonus + profBonus + miscAttackMod;
 int dexBasedAttackBonus = dexBonus + profBonus + miscAttackMod;
 
+// in this context SC is Spell Casting abbreviated
+cout << "1- WIS" << endl 
+	 << "2- INT" << endl
+	 << "3- CHA" << endl
+	 << "Input the number corresponding with your spell casting ability: ";
+	
+short SCinput;
+cin >> SCinput;
+int SCattackBonus;
+int spellSaveDC;
+// DC stands for Difficulty Class
+switch (SCinput)
+{	case 1:
+		SCattackBonus = (wisBonus + profBonus);
+		spellSaveDC = (8 + wisBonus + profBonus);
+		break;
+	case 2:
+		SCattackBonus = (intelBonus + profBonus);
+		spellSaveDC = (8 + intelBonus + profBonus);
+		break;
+	default:
+		SCattackBonus = (chaBonus + profBonus);
+		spellSaveDC = (8 + chaBonus + profBonus);
+		break;
+}
+
+
 cout <<"these are your final scores:" << endl 
  	 << setw(10) << "STR:" << setw(3) << str << setw(3) 
 	 << "  STR Bonus: " << setw(3) << strBonus << endl
@@ -182,9 +211,13 @@ cout <<"these are your final scores:" << endl
 
 system("pause");
 
-cout << "These are your physical attack bonuses: " << endl
+cout << "These are your attack bonuses: " << endl
  	 << "STR based Attack Bonus: " << strBasedAttackBonus << endl
-	 << "DEX based Attack Bonus: " << dexBasedAttackBonus << endl;
+	 << "DEX based Attack Bonus: " << dexBasedAttackBonus << endl << endl << endl;
+
+cout << "Your Spell attack bonus: " << SCattackBonus << endl
+	 << "Your Spell Save DC: " << spellSaveDC << endl;
+
 
 system("pause");
 
