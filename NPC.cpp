@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <limits>
+#include <random>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ int main()
 	int ASmaxValue = 18; 
 	int ASminValue = 9;
 
+	//roll ability scores
 	srand(time(0));
 	int ASroll1 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
 	int ASroll2 = rand() % (ASmaxValue - ASminValue + 1) + ASminValue;
@@ -30,6 +32,8 @@ int main()
 	 	 << "Ability Score 5 rolled: " << ASroll5 << endl
 	 	 << "Ability Score 6 rolled: " << ASroll6 << endl;
 	
+
+
 	int str;
 	int strBonus;
 
@@ -48,6 +52,7 @@ int main()
 	int cha;
 	int chaBonus;
 	
+	//input the ability scores
 	cout << "please assign these scores:" << endl;
 	cout << setw(10) << "STR: ";
 	cin >> str;
@@ -188,7 +193,41 @@ switch (SCinput)
 		spellSaveDC = (8 + chaBonus + profBonus);
 		break;
 }
+int numHitDice;
+int maxDiceValue;
+int totalHitPoints = 0;
 
+ // Get user input for number of hit dice and maximum dice value
+cout << "Enter the number of hit dice to roll: " << endl;
+cin >> numHitDice;
+
+cout << "Enter the maximum value of the hit dice: " << endl;
+cin >> maxDiceValue;
+
+ // Set up random number generator
+random_device rd;
+mt19937 gen(rd());
+uniform_int_distribution<> dist(1, maxDiceValue);
+
+cout << "rolling maximum HP" << endl;
+
+system("pause");
+
+ // Roll the hit dice and calculate total hit points
+
+for (int i = 0; i < 1; ++i)
+{
+	totalHitPoints = maxDiceValue + conBonus;
+}
+
+for (int i = 1; i < numHitDice; ++i) 
+{
+    int roll = dist(gen);
+    totalHitPoints = totalHitPoints + roll + conBonus;
+    cout << "Rolled a " << roll << std::endl;
+}
+
+//output ability scores and bonuses
 cout <<"these are your final scores:" << endl 
  	 << setw(10) << "STR:" << setw(3) << str << setw(3) 
 	 << "  STR Bonus: " << setw(3) << strBonus << endl
@@ -209,7 +248,7 @@ cout <<"these are your final scores:" << endl
 	 << "  CHA Bonus: " << setw(3) << chaBonus << endl;
 
 system("pause");
-
+//output attack bonuses and spell save DC
 cout << "These are your attack bonuses: " << endl
  	 << "STR based Attack Bonus: " << strBasedAttackBonus << endl
 	 << "DEX based Attack Bonus: " << dexBasedAttackBonus << endl << endl << endl;
@@ -220,5 +259,9 @@ cout << "Your Spell attack bonus: " << SCattackBonus << endl
 
 system("pause");
 
+ // Output the total hit points
+    std::cout << "Total hit points: " << totalHitPoints << std::endl;
+
+system("pause");	
 return 0;
 }
