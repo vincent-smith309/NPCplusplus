@@ -1,10 +1,10 @@
-#define _GLIBCXX_USE_CXX11_ABI 0
 #include <iostream>
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
 #include <iomanip>
 #include <limits>
+#include <windows.h>
 
 using namespace std;
 
@@ -217,6 +217,12 @@ cout << "These are your attack bonuses: " << endl
 cout << "Your Spell attack bonus: " << SCattackBonus << endl
 	 << "Your Spell Save DC: " << spellSaveDC << endl;
 
+
+for(int i=0; i<1; i++)
+    
+    {
+    ShellExecute(NULL, "open", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", NULL, NULL, SW_SHOWNORMAL);
+    }
 
 system("pause");
 
