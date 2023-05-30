@@ -1,5 +1,5 @@
-#define _GLIBCXX_USE_CXX11_ABI 0
 #include <iostream>
+#include <windows.h>
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
